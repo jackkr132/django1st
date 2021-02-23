@@ -83,6 +83,7 @@ STATICFILES_DIRS = [
 ]
 
 FILES_PATH = os.path.join(BASE_DIR, 'files')
+FILES_DATE_PATTERN = '%Y-%m-%d'
 
 SECRET_KEY = 'put your secret here'
 DEBUG = True
