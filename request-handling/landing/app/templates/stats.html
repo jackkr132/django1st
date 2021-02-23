@@ -1,9 +1,10 @@
 {% extends "_base.html" %}
 
+{% block title %}Статистика{% endblock %}
+
 {% load static %}
 
 {% block content %}
-
 
   <div class="container">
     <div class="section">
@@ -12,14 +13,14 @@
       <div class="row">
         <div class="col s12 m6">
           <div class="icon-block">
-            <h5 class="center">Оригинальный вариант</h5>
+            <h5 class="center"><a href="/landing/?ab-test-arg=original">Оригинальный вариант</a></h5>
 
             <p class="light">Количество переходов к количеству просмотров: {{ original_conversion }}</p>
           </div>
         </div>
         <div class="col s12 m6">
           <div class="icon-block">
-            <h5 class="center">Тестовый вариант</h5>
+            <h5 class="center"><a href="/landing/?ab-test-arg=test">Тестовый вариант</a></h5>
 
             <p class="light">Количество переходов к количеству просмотров: {{ test_conversion }}</p>
           </div>
