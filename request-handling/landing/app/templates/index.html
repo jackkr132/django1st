@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+{% block title %}Целевая страница{% endblock %}
+
 {% load static %}
 
 {% block content %}
@@ -8,7 +10,11 @@
   <div class="container">
     <div class="section">
 
-      <h3>Спасибо, что посетили наш сайт!</h3>
+      <div class="row center">
+          <h3>Спасибо, что посетили наш сайт!</h3>
+          <a href="{% url "stats" %}">В статистику</a>
+      </div>
+
 
     </div>
   </div>
