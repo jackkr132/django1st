@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+{% block title %}Обычный дизайн{% endblock %}
+
 {% load static %}
 
 {% block content %}
@@ -41,6 +43,9 @@
         <div class="row center">
           <a href="{% url "index" %}?from-landing=original" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">
             Перейти на сайт!</a>
+        </div>
+        <div class="row center">
+          <a href="{% url "stats" %}">В статистику</a>
         </div>
         <br><br>
 
