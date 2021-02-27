@@ -1,4 +1,5 @@
 <!DOCTYPE html>{% load static %}
+  {% load custom_filters %}
 <html>
   <head>
     <meta charset="UTF-8">
@@ -17,12 +18,51 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
-
+           <table class="u-full-width centered highlight responsive-table">
+              <thead>
+                <tr>
+                {% for column in columns %}
+                  <th>{{ column }}</th>
+                {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+              {% for row in table %}
+                <tr>
+                {% for column in columns %}
+                    {% with value=row|get_value:column %}
+                    {% if forloop.first  %}
+                        <td>{{ value }}</td>
+                    {% elif forloop.last  %}
+                        <td class="grey lighten-1">{{ value }}</td>
+                    {% else %}
+                        {% with value_float=value|make_float %}
+                            {% if value == '' %}
+                                <td>-</td>
+                            {% else %}
+                                {% if value_float < 0  %}
+                                    <td class="green darken-3">
+                                {% elif value_float >= 5  %}
+                                    <td class="red accent-4">
+                                {% elif value_float >= 2  %}
+                                    <td class="red lighten-1">
+                                {% elif value_float >= 1  %}
+                                    <td class="red lighten-4">
+                                {% else %}
+                                    <td>
+                                {% endif %}
+                                {{ value }}</td>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                    {% endwith %}
+                {% endfor %}
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
         </div>
       </div>
     {% endblock %}
-
   </body>
 </html>

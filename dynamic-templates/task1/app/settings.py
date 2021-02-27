@@ -106,6 +106,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CSV_FILE = 'inflation_russia.csv'
+
 SECRET_KEY = 'put your secret here'
 DEBUG = True
 
