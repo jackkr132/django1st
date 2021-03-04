@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
+{% load filters %}
 
 {% block title %}Телефон{% endblock %}
 {% block content %}
-    <div class="container">
-        <div class="header">
-            <h1>Телефон</h1>
+<div class="content row justify-content-center">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src="{{phone.image}}" alt="{{phone.name}}">
         </div>
-        <div class="content">
-
+        <div class="col-md-6">
+          <div class="card-body">
+            <h1 class="card-title">{{phone.name}}</h1>
+            <p class="card-text">Этот аппарат был анонсирован {{phone.release_date|format_date}}</p>
+            {% if phone.lte_exists %}
+              <p class="card-text">В нем также присутствует LTE</p>
+            {% endif %}
+            <a class="btn btn-primary btn-lg" href="#" role="button">Купить за {{phone.price}} р.</a>
+            <p class="card-text"><small class="text-muted"></small></p>
+          </div>
         </div>
+      </div>
     </div>
+</div>
+
 {% endblock %}
